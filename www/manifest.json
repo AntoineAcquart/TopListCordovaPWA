@@ -1,0 +1,24 @@
+{
+  "name": "Top List App Antoine Acquart",
+  "short_name": "Top List",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#ffff",
+  "icons": [
+    {
+      "src": "img/logo.png",
+      "sizes": "50x50",
+      "type": "image/png"
+    },
+    {
+      "src": "img/logo.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "web"
+    }
+  ]
+}

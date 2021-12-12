@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="manifest" href="manifest.json" />
+  <script>
+    window.addEventListener("load", () => {
+      if ("cordova" in window) {
+      } else {
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker
+            .register("sw.js", { scope: "./" })
+            .then(function (reg) { });
+        }
+        var OneSignal = window.OneSignal || [];
+        var initConfig = {
+          appId: "0e7468fd-cf9c-4079-8af1-99e3fc4069de",
+          notifyButton: {
+            enable: true,
+          },
+        };
+        OneSignal.push(function () {
+          OneSignal.SERVICE_WORKER_PARAM = { scope: "push/onesignal/" };
+          OneSignal.SERVICE_WORKER_PATH =
+            "push/onesignal/OneSignalSDKWorker.js";
+          OneSignal.SERVICE_WORKER_UPDATER_PATH =
+            "push/onesignal/OneSignalSDKUpdaterWorker.js";
+          OneSignal.init(initConfig);
+        });
+      }
+    });
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
+    crossorigin="anonymous"></script>
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover" />
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+
+  <title>Top List</title>
+</head>
+
+<body>
+  <nav id="header">
+    <div class="infos">
+      <img src="img/logo.png" />
+      <span>TOP CREATOR</span>
+    </div>
+    <div class="actions">
+      <span class="create-item-button button" onclick="toggleCreateForm()">
+        Ajouter un item
+      </span>
+    </div>
+  </nav>
+  <main class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <h1>TOP</h1>
+
+      </div>
+    </div>
+    <div class="row" id="orderable-list">
+
+      <div class="col-12 col-md-4 orderable-item">
+        <div class="card item">
+          <div class="card-body">
+            <h5 class="card-title">1. __title__</h5>
+            <p class="card-text">
+              __description__
+            </p>
+          </div>
+          <img src="img/logo.png" class="card-img-right" />
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 orderable-item">
+        <div class="card item">
+          <div class="card-body">
+            <h5 class="card-title">2. __title__</h5>
+            <p class="card-text">
+              __description__
+            </p>
+          </div>
+          <img src="img/logo.png" class="card-img-right" />
+        </div>
+      </div>
+
+    </div>
+    <div id="create-item-screen" onclick="toggleCreateForm(event)" class="hidden">
+      <div id="create-item-container">
+        <form id="create-item-form">
+          <span>Créer un nouvel item</span>
+          <div class="middle">
+            <div class="text-fields">
+              <div class="field">
+                <label for="name">TITRE</label>
+                <input type="text" id="name" name="name" placeholder="Entrer un nom" />
+              </div>
+              <div class="field">
+                <label for="description">DESCRIPTION</label>
+                <!-- <input type="text" id="description" name="description" placeholder="Entrer une description" /> -->
+                <textarea id="description" name="description"
+                  placeholder="Entrer une description décrivant le nouvel item ..."></textarea>
+              </div>
+            </div>
+            <div class="image-fields">
+              <div class="field">
+                <label for="image">IMAGE</label>
+                <div class="button-wrapper">
+                  <span class="label button">
+                    choisir un fichier
+                  </span>
+                  <input type="file" id="upload" name="image" onchange="onImageSelected(this)" />
+                </div>
+              </div>
+              <span id="selected-image">
+              </span>
+            </div>
+          </div>
+          <div class="field under-middle">
+            <label for="order">POSITION</label>
+            <div class="order-container">
+              <span id="order-value"></span>
+              <input type="range" id="order-slider" name="order" onchange="onOrderSelected(this)" />
+            </div>
+          </div>
+          <div class="bottom">
+            <span class="button" onclick="validateForm()">Ajouter</span>
+            <span class="button" onclick="toggleCreateForm()">Annuler</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/native.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/list.js"></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", function () {
+      setupDragAndDropList();
+    });
+  </script>
+</body>
+
+</html>
