@@ -38,14 +38,26 @@ Sur Visual Studio Code ouvrir le dossier racine
 
 ### Android
 
+Sur Visual Studio Code ouvrir le dossier racine
+
 > cordova add platform android
 
 > cordova run android
 
 ## Fonctionnement
 
+L'application permet de créer des "items", de leur atribuer un nom, une description, une image et une position dans le classement.
+
 <p align="center">
-  <img src="screenshots/empty_app.jpg" alt="App vide" height="500">
-  <img src="screenshots/appinbrowser_app.jpg" alt="InAppBrowser" height="500">
-  <img src="screenshots/create_item_app.jpg" alt="Créer un item" height="500">
+  <img src="screenshots/create_item_app.jpg" alt="Créer un item" height="500" margin="1">
+  <img src="screenshots/create_item_fullfiled_app.jpg" alt="Créer un item" height="500" margin="1">
+  <img src="screenshots/one_item_app.jpg" alt="liste" height="500" margin="1">
+</p>
+
+
+Il est également possible de modifier l'item et sa position dans le classement, ainsi que de le supprimer.
+
+<p align="center">
+  <img src="screenshots/edit_item_app.jpg" alt="liste" height="500" margin="1">
+  <img src="screenshots/two_items_app.jpg" alt="liste" height="500" margin="1">
 </p>
