@@ -23,6 +23,8 @@ Il inclu les plugins suivants :
 
 ## Lancer le projet 
 
+Pour commencer, il faut cloner le projet puis installer les dépendances avec `npm i`
+
 ### PWA
 
 Sur Visual Studio Code ouvrir le dossier `/www`, clique droit sur le fichier `index.html` puis `Open with Live Server` (l'extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) est necessaire)
@@ -31,18 +33,18 @@ Sur Visual Studio Code ouvrir le dossier `/www`, clique droit sur le fichier `in
 
 Sur Visual Studio Code ouvrir le dossier racine
 
-> cordova add platform browser
+> `cordova platform add browser`
 
-> cordova emulate browser
+> `cordova emulate browser`
 
 
 ### Android
 
 Sur Visual Studio Code ouvrir le dossier racine
 
-> cordova add platform android
+> `cordova platform add android`
 
-> cordova run android
+> `cordova run android`
 
 ## Fonctionnement
 
