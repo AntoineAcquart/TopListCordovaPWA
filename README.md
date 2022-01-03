@@ -1,4 +1,11 @@
-# TopListCordovaPWA
+![OS](https://badgen.net/badge/OS/Android?icon=https://raw.githubusercontent.com/androiddevnotes/awesome-android-kotlin-apps/master/assets/android.svg&color=3ddc84)
+![OS](https://badgen.net/badge/OS/IOS?https://img.shields.io/badge/iOS-000000)
+![BROWSER](https://badgen.net/badge/BROWSER/ALL?https://img.shields.io/badge/browser&color=ff8226)
+# Top Creator
+
+<p align="center">
+  <img src="www/img/logo.png" alt="App vide" height="250">
+</p>
 
 Ce projet a été réalisé avec [Cordova](https://cordova.apache.org/).
 
