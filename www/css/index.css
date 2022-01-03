@@ -15,7 +15,6 @@ body {
     "Roboto", sans-serif;
   font-size: 12px;
   height: 100vh;
-  overflow: hidden;
   margin: 0px;
   padding: 0px;
   /* Padding to avoid the "unsafe" areas behind notches in the screen */
@@ -33,27 +32,41 @@ body {
 @media screen and (min-aspect-ratio: 1/1) and (min-width: 400px) {
 }
 
+body > div {
+  z-index: 200;
+  position: fixed!important;
+}
+
 #header {
+  position: fixed;
+  z-index: 11;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   height: 10vh;
-  background-color: #333741;
+  width: 100%;
+  background-color: #191919;
 }
 
 .infos {
   display: flex;
   flex-direction: row;
   justify-content: start;
-  align-items: center;
+  align-items: end;
+  padding-bottom: 1vh;
   text-transform: uppercase;
-  color: white;
+  color: #d3d3d3;
+  font-size: 25px;
   font-weight: bold;
 }
 
 .infos > * {
   margin: 1vh;
+}
+
+.infos .title {
+  padding-bottom: 1vh;
 }
 
 .infos > img {
@@ -73,27 +86,37 @@ body {
   margin: 1vh;
 }
 
-.actions > .create-item-button {
-  border-style: none;
+.actions > .button {
+  background-color: #282897!important;
+  border-radius: 50%!important;
+  padding: 1vh!important;
+  margin: 1vh 2vh 1vh 0!important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.actions > .button > img {
+  width: 3vh;
+  height: 3vh;
 }
 
 main {
-  height: 100%;
-  color: white;
+  height: auto;
+  padding-top: 12vh;
 }
 main h1 {
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
-#create-item-screen {
+#edit-item-screen {
   z-index: 100;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(189, 189, 189, 0.452);
+  background-color: rgba(92, 92, 92, 0.452);
   opacity: 1;
 }
 
@@ -101,7 +124,7 @@ main h1 {
   display: none;
 }
 
-#create-item-container {
+#edit-item-container {
   z-index: 101;
   position: absolute;
   top: 11vh;
@@ -115,7 +138,7 @@ main h1 {
   align-items: center;
 }
 
-#create-item-container > form {
+#edit-item-container > form {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -127,17 +150,17 @@ main h1 {
   font-weight: 800;
 }
 
-#create-item-container > form > .middle {
+#edit-item-container > form > .middle {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
 }
 
-#create-item-container > form > .middle > * {
+#edit-item-container > form > .middle > * {
   width: 50%;
 }
 
-#create-item-container .field {
+#edit-item-container .field {
   padding: 1vh 2vh;
   display: flex;
   width: 100%;
@@ -145,19 +168,20 @@ main h1 {
   align-items: start;
 }
 
-#create-item-form > span {
+#edit-item-form > span {
   width: 100%;
   padding: 2vh;
   text-transform: uppercase;
   font-size: 20px;
   font-weight: 900;
-  color: rgb(19, 19, 19, 0.8);
+  color: #d3d3d3;
 }
 
 input[type=text], textarea {
   background-color: transparent;
   border: none;
   border-radius: 0;
+  color: #d4d4d4;
   outline: none;
   height: 2rem;
   width: 100%;
@@ -259,7 +283,7 @@ textarea {
   max-height: 90%;
 }
 
-#create-item-container > form > .bottom {
+#edit-item-container > form > .bottom {
   width: 100%;
   padding: 2vh 0;
   display: flex;
@@ -279,7 +303,6 @@ textarea {
 #orderable-list {
   display: flex;
   flex-direction: column;
-  color: black;
   text-decoration: none;
 }
 
@@ -288,11 +311,23 @@ textarea {
   /* width: 80%; */
 }
 
+.card-body {
+  overflow: hidden;
+}
+
 .item {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  color: black;
+  align-items: center;
+  color: rgb(212, 212, 212);
+  background-color: rgb(37, 37, 37);
+
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 0.25rem;
 }
 
 .item.hint { background: #fea; }
@@ -301,4 +336,5 @@ textarea {
 .card-img-right {
   max-width: 50%;
   height: 10vh;
+  padding: 1vh;
 }
